@@ -1,0 +1,30 @@
+# Java
+*.class
+*.jar
+*.war
+*.log
+
+# Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# 配置文件
+application-local.yml
+*.env

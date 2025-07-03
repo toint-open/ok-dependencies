@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.toint</groupId>
+    <artifactId>ok-dependencies</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>oktool</name>
+    <description>依赖版本管理</description>
+    <url>https://github.com/toint-open/ok-dependencies</url>
+
+    <developers>
+        <developer>
+            <name>Toint</name>
+            <email>599818663@qq.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/toint-open/ok-dependencies.git</connection>
+        <developerConnection>scm:git:ssh://github.com/toint-open/ok-dependencies.git</developerConnection>
+        <url>https://github.com/toint-open/ok-dependencies</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <springboot.version>3.5.3</springboot.version>
+        <okhttp.version>4.12.0</okhttp.version>
+        <hutool6.version>6.0.0-M21</hutool6.version>
+        <ttl.version>2.14.5</ttl.version>
+        <jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
+    </properties>
+
+   <dependencyManagement>
+       <dependencies>
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-dependencies</artifactId>
+               <version>${springboot.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+
+           <dependency>
+               <groupId>com.squareup.okhttp3</groupId>
+               <artifactId>okhttp</artifactId>
+               <version>${okhttp.version}</version>
+           </dependency>
+
+           <!--hutool6.x-->
+           <dependency>
+               <groupId>org.dromara.hutool</groupId>
+               <artifactId>hutool-all</artifactId>
+               <version>${hutool6.version}</version>
+           </dependency>
+
+           <dependency>
+               <groupId>org.jetbrains</groupId>
+               <artifactId>annotations</artifactId>
+               <version>${jetbrains-annotations.version}</version>
+           </dependency>
+
+           <dependency>
+               <groupId>com.alibaba</groupId>
+               <artifactId>transmittable-thread-local</artifactId>
+               <version>${ttl.version}</version>
+           </dependency>
+       </dependencies>
+   </dependencyManagement>
+</project>
