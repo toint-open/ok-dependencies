@@ -12,7 +12,7 @@
 
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-20250704091818</version>
 
     <packaging>pom</packaging>
 
