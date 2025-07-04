@@ -51,10 +51,18 @@
         <mybatis-flex.version>1.10.9</mybatis-flex.version>
         <druid.version>1.2.24</druid.version>
         <aliyun-sms.version>4.1.2</aliyun-sms.version>
+        <tencent-sms.version>1.0.6</tencent-sms.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--腾讯云短信-->
+            <dependency>
+                <groupId>com.github.qcloudsms</groupId>
+                <artifactId>qcloudsms</artifactId>
+                <version>${tencent-sms.version}</version>
+            </dependency>
+
             <!--阿里云短信-->
             <dependency>
                 <groupId>com.aliyun</groupId>
