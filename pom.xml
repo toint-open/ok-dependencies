@@ -4,15 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.5.3</version>
-    </parent>
-
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
-    <version>1.0.0-20250704091818</version>
+    <version>1.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -47,16 +41,25 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <springboot.version>3.5.3</springboot.version>
         <okhttp.version>4.12.0</okhttp.version>
         <hutool6.version>6.0.0-M21</hutool6.version>
         <ttl.version>2.14.5</ttl.version>
         <jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
         <mybatis-flex.version>1.10.9</mybatis-flex.version>
         <druid.version>1.2.24</druid.version>
+        <aliyun-sms.version>dysmsapi20170525</aliyun-sms.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--阿里云短信-->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${aliyun-sms.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-3-starter</artifactId>
@@ -105,33 +108,44 @@
                 <artifactId>mybatis-flex-spring-boot3-starter</artifactId>
                 <version>${mybatis-flex.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <pluginManagement>
             <plugins>
-                <!--上传中央仓库-->
                 <plugin>
-                    <groupId>org.sonatype.central</groupId>
-                    <artifactId>central-publishing-maven-plugin</artifactId>
-                    <version>0.7.0</version>
-                </plugin>
-
-                <!--签名-->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>3.2.7</version>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${springboot.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
+            <!-- 统一更新pom版本 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.17.1</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+
             <!--上传中央仓库-->
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
@@ -142,6 +156,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
                 <executions>
                     <execution>
                         <phase>verify</phase>
@@ -155,6 +170,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -168,6 +184,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
                 <configuration>
                     <doclint>none</doclint>
                 </configuration>
