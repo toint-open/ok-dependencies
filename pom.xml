@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>3.5.3</version>
+    </parent>
+
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -41,47 +47,139 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <springboot.version>3.5.3</springboot.version>
         <okhttp.version>4.12.0</okhttp.version>
         <hutool6.version>6.0.0-M21</hutool6.version>
         <ttl.version>2.14.5</ttl.version>
         <jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
+        <mybatis-flex.version>1.10.9</mybatis-flex.version>
+        <druid.version>1.2.24</druid.version>
     </properties>
 
-   <dependencyManagement>
-       <dependencies>
-           <dependency>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-dependencies</artifactId>
-               <version>${springboot.version}</version>
-               <type>pom</type>
-               <scope>import</scope>
-           </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-3-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
 
-           <dependency>
-               <groupId>com.squareup.okhttp3</groupId>
-               <artifactId>okhttp</artifactId>
-               <version>${okhttp.version}</version>
-           </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
 
-           <!--hutool6.x-->
-           <dependency>
-               <groupId>org.dromara.hutool</groupId>
-               <artifactId>hutool-all</artifactId>
-               <version>${hutool6.version}</version>
-           </dependency>
+            <!--hutool6.x-->
+            <dependency>
+                <groupId>org.dromara.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool6.version}</version>
+            </dependency>
 
-           <dependency>
-               <groupId>org.jetbrains</groupId>
-               <artifactId>annotations</artifactId>
-               <version>${jetbrains-annotations.version}</version>
-           </dependency>
+            <dependency>
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${jetbrains-annotations.version}</version>
+            </dependency>
 
-           <dependency>
-               <groupId>com.alibaba</groupId>
-               <artifactId>transmittable-thread-local</artifactId>
-               <version>${ttl.version}</version>
-           </dependency>
-       </dependencies>
-   </dependencyManagement>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${ttl.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.toint</groupId>
+                <artifactId>oktool</artifactId>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.toint</groupId>
+                <artifactId>oktool-spring-boot-starter</artifactId>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mybatis-flex</groupId>
+                <artifactId>mybatis-flex-spring-boot3-starter</artifactId>
+                <version>${mybatis-flex.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!--上传中央仓库-->
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.7.0</version>
+                </plugin>
+
+                <!--签名-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.2.7</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <!--上传中央仓库-->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>
+
+            <!--签名-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <doclint>none</doclint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
