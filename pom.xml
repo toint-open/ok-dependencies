@@ -6,7 +6,7 @@
 
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <packaging>pom</packaging>
 
@@ -41,9 +41,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <oktool.version>2.0.0-alpha-2</oktool.version>
-        <oksms.version>1.0.0</oksms.version>
-
         <springboot.version>3.5.3</springboot.version>
         <okhttp.version>4.12.0</okhttp.version>
         <hutool6.version>6.0.0-M21</hutool6.version>
@@ -58,12 +55,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>cn.toint</groupId>
-                <artifactId>oksms</artifactId>
-                <version>${oksms.version}</version>
-            </dependency>
-
             <!--邮箱-->
             <dependency>
                 <groupId>com.sun.mail</groupId>
@@ -114,18 +105,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>
                 <version>${ttl.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.toint</groupId>
-                <artifactId>oktool</artifactId>
-                <version>${oktool.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.toint</groupId>
-                <artifactId>oktool-spring-boot-starter</artifactId>
-                <version>${oktool.version}</version>
             </dependency>
 
             <dependency>
