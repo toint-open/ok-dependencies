@@ -51,15 +51,23 @@
         <mybatis-flex.version>1.10.9</mybatis-flex.version>
         <druid.version>1.2.24</druid.version>
         <aliyun-sms.version>4.1.2</aliyun-sms.version>
-        <tencent-sms.version>1.0.6</tencent-sms.version>
+        <tencent-sms.version>3.1.1281</tencent-sms.version>
+        <mail.version>2.0.1</mail.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--邮箱-->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>jakarta.mail</artifactId>
+                <version>${mail.version}</version>
+            </dependency>
+
             <!--腾讯云短信-->
             <dependency>
-                <groupId>com.github.qcloudsms</groupId>
-                <artifactId>qcloudsms</artifactId>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java-sms</artifactId>
                 <version>${tencent-sms.version}</version>
             </dependency>
 
