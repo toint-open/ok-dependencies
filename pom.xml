@@ -6,7 +6,7 @@
 
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <packaging>pom</packaging>
 
@@ -51,10 +51,53 @@
         <tencent-sms.version>3.1.1281</tencent-sms.version>
         <mail.version>2.0.1</mail.version>
         <sa-token.version>1.44.0</sa-token.version>
+        <weixin-java.version>4.7.0</weixin-java.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--微信小程序-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!--微信支付-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-pay</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!--微信开放平台-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-open</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!--微信公众号-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-mp</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!--企业微信-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-cp</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!--微信视频号/微信小店-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-channel</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot3-starter</artifactId>
