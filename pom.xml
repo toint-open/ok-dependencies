@@ -6,7 +6,7 @@
 
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 
     <packaging>pom</packaging>
 
@@ -45,7 +45,7 @@
         <hutool6.version>6.0.0-M21</hutool6.version>
         <ttl.version>2.14.5</ttl.version>
         <jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
-        <mybatis-flex.version>1.10.9</mybatis-flex.version>
+        <mybatis-flex.version>1.11.0</mybatis-flex.version>
         <druid.version>1.2.24</druid.version>
         <aliyun-sms.version>4.1.2</aliyun-sms.version>
         <tencent-sms.version>3.1.1281</tencent-sms.version>
