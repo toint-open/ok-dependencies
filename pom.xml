@@ -53,10 +53,18 @@
         <sa-token.version>1.44.0</sa-token.version>
         <weixin-java.version>4.7.0</weixin-java.version>
         <aliyun-oss.version>3.18.1</aliyun-oss.version>
+        <geodesy.version>1.1.3</geodesy.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--geo-->
+            <dependency>
+                <groupId>org.gavaghan</groupId>
+                <artifactId>geodesy</artifactId>
+                <version>${geodesy.version}</version>
+            </dependency>
+
             <!--微信小程序-->
             <dependency>
                 <groupId>com.github.binarywang</groupId>
