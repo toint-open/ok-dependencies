@@ -43,6 +43,7 @@
 
         <okhttp.version>4.12.0</okhttp.version>
         <hutool6.version>6.0.0-M21</hutool6.version>
+        <hutool7.version>7.0.0-M1</hutool7.version>
         <ttl.version>2.14.5</ttl.version>
         <jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
         <mybatis-flex.version>1.11.0</mybatis-flex.version>
@@ -59,6 +60,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>cn.hutool.v7</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool7.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
