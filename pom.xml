@@ -6,7 +6,7 @@
 
     <groupId>cn.toint</groupId>
     <artifactId>ok-dependencies</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
 
     <packaging>pom</packaging>
 
@@ -35,32 +35,39 @@
     </licenses>
 
     <properties>
-        <java.version>21</java.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>25</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <okhttp.version>4.12.0</okhttp.version>
-        <hutool6.version>6.0.0-M21</hutool6.version>
-        <hutool7.version>7.0.0-M1</hutool7.version>
+        <hutool6.version>6.0.0-M22</hutool6.version>
+        <hutool7.version>7.0.0-M2</hutool7.version>
         <ttl.version>2.14.5</ttl.version>
         <jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
-        <mybatis-flex.version>1.11.0</mybatis-flex.version>
-        <druid.version>1.2.24</druid.version>
+        <mybatis-flex.version>1.11.3</mybatis-flex.version>
+        <druid.version>1.2.27</druid.version>
         <aliyun-sms.version>4.1.2</aliyun-sms.version>
         <tencent-sms.version>3.1.1281</tencent-sms.version>
         <mail.version>2.0.1</mail.version>
         <sa-token.version>1.44.0</sa-token.version>
-        <weixin-java.version>4.7.7.B</weixin-java.version>
+        <weixin-java.version>4.7.8.B</weixin-java.version>
         <aliyun-oss.version>3.18.1</aliyun-oss.version>
         <geodesy.version>1.1.3</geodesy.version>
         <poi-ooxml.version>5.4.1</poi-ooxml.version>
-        <hivemq-mqtt-client.version>1.3.9</hivemq-mqtt-client.version>
+        <hivemq-mqtt-client.version>1.3.10</hivemq-mqtt-client.version>
+        <minio.version>8.6.0</minio.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+
             <!--mqtt客户端-->
             <dependency>
                 <groupId>com.hivemq</groupId>
