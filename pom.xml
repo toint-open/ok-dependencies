@@ -12,7 +12,7 @@
 
     <name>ok-dependencies</name>
     <description>依赖版本管理</description>
-    <url>https://github.com/toint-open/ok-dependencies</url>
+    <url>https://github.com/zhengshuyun-open/ok-dependencies</url>
 
     <developers>
         <developer>
@@ -22,9 +22,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/toint-open/ok-dependencies.git</connection>
-        <developerConnection>scm:git:ssh://github.com/toint-open/ok-dependencies.git</developerConnection>
-        <url>https://github.com/toint-open/ok-dependencies</url>
+        <connection>scm:git:git://github.com/zhengshuyun-open/ok-dependencies.git</connection>
+        <developerConnection>scm:git:ssh://github.com/zhengshuyun-open/ok-dependencies.git</developerConnection>
+        <url>https://github.com/zhengshuyun-open/ok-dependencies</url>
     </scm>
 
     <licenses>
